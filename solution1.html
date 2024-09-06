@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalydian - Solution 1</title>
+    <link rel="stylesheet" href="style-solution.css">
+</head>
+<body>
+    <!-- Modale de saisie de MasterKey -->
+    <div class="modal" id="masterkeyModal">
+        <div class="modal-content">
+            <h2>Saisir la master key du coffre</h2>
+            <input type="password" id="masterkeyInput" placeholder="Saisir la master key">
+            <div class="modal-buttons">
+                <button onclick="goBack()">Retour à l'accueil</button>
+                <button onclick="validateMasterkey()">Valider</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast message -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Contenu du coffre -->
+    <div class="container" id="content" style="display:none;">
+        <h1>Kalydian - Master key portée par le coffre</h1>
+
+        <!-- Boutons d'ajout -->
+        <div class="actions">
+            <button class="action-btn" onclick="openAddPasswordModal()">Ajouter un mot de passe</button>
+            <button class="action-btn" onclick="openAddFolderModal()">Ajouter un dossier</button>
+        </div>
+
+        <!-- Tableau de gestion des mots de passe -->
+        <table id="passwordTable">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Exemple Nom</td>
+                    <td>utilisateur@example.com</td>
+                    <td>*******</td>
+                </tr>
+                <!-- D'autres lignes peuvent être ajoutées ici -->
+            </tbody>
+        </table>
+
+        <!-- Bouton pour quitter le coffre -->
+        <button class="quit-btn" onclick="quitVault()">Quitter le coffre et retirer la clef</button>
+    </div>
+
+    <!-- Modale pour ajouter un mot de passe -->
+    <div class="modal" id="addPasswordModal">
+        <div class="modal-content">
+            <h2>Créer un mot de passe</h2>
+            <input type="text" id="passwordName" placeholder="Nom du mot de passe">
+            <input type="text" id="passwordLogin" placeholder="Identifiant">
+            <input type="password" id="passwordValue" placeholder="Mot de passe">
+            <div class="modal-buttons">
+                <button onclick="addPassword()">Valider</button>
+                <button onclick="closeAddPasswordModal()">Retour</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale pour ajouter un dossier -->
+    <div class="modal" id="addFolderModal">
+        <div class="modal-content">
+            <h2>Créer un dossier</h2>
+            <input type="text" id="folderName" placeholder="Nom du dossier">
+            <div class="modal-buttons">
+                <button onclick="addFolder()">Valider</button>
+                <button onclick="closeAddFolderModal()">Retour</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="solution1.js"></script>
+</body>
+</html>
